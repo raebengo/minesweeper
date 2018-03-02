@@ -12,6 +12,7 @@ button {
     padding: 1em;
     text-align: center;
     font-size: 1em;
+    margin-bottom: 1.5em;
 }
 
 textarea {
@@ -76,4 +77,28 @@ p {
     padding: 0;
     font-family: 'Montserrat', sans-serif;
     font-weight:bold;
+}
+
+h5{
+    display:inline-block;
+    font-family: 'Montserrat', sans-serif;
+    margin: .2em;
+}
+
+input {
+    margin: 1em;
+    padding: 1em;
+    text-align: center;
+    width: 2em;
+}
+
+footer a {
+   color: #000;
+   float:right;
+   margin:1.9em;
+   padding:.2em;
+   font-size:0.8em;
+   text-decoration: none;
+   font-weight:bold;
+   font-family: 'Montserrat', sans-serif;
 }

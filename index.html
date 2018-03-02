@@ -8,12 +8,14 @@
   <body>
     <div id="app">
       <h1>{{message}}</h1>
+      <h5>Number of Mines</h5>
+      <input v-model="numofMines"></input>
+      <br>
       <button v-on:click="size(0)">Easy</button>
       <button v-on:click="size(1)">Medium</button>
       <button v-on:click="size(2)">Hard</button>
       <br>
-      <input v-model="numofMines" placeholder="Number of Mines"></p>
-
+      <h5>Click on each square to reveal how many mines it is next to. Flag each bomb(#) without stepping on them to win!</h5>
 
        <template v-if="difficulty === 0">
           <div class="gridEasy">
@@ -47,7 +49,7 @@
      </template>
      <template v-if="difficulty === 2">
         <div class="gridHard">
-          <div v-for="square in squares" v-on:click.left="clickedSquare(square.id)" v-on:click.shift="flagSquare(square.id)">
+          <div v-for="square in squares" @click="handle($event, square.id)">
             <template v-if="square.class">
               <div class="grid-item">
               </div>
@@ -65,4 +67,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <script src="/script.js"></script>
   </body>
+  <footer>
+    <a href="https://github.com/raebengo/minesweeper">Source Code</a>
+  </footer>
 </html>
