@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <title>Mine Sweeper</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{message}}</h1>
+      <button v-on:click="size(0)">Easy</button>
+      <button v-on:click="size(1)">Medium</button>
+      <button v-on:click="size(2)">Hard</button>
+      <br>
+      <input v-model="numofMines" placeholder="Number of Mines"></p>
+
+
+       <template v-if="difficulty === 0">
+          <div class="gridEasy">
+            <div v-for="square in squares" @click="handle($event, square.id)">
+              <template v-if="square.class">
+                <div class="grid-item">
+                </div>
+              </template>
+              <template v-else>
+                <div class="clicked-item">
+                  <p>{{square.value}}</p>
+                </div>
+              </template>
+            </div>
+          </div>
+      </template>
+      <template v-else-if="difficulty === 1">
+         <div class="gridMedium">
+           <div v-for="square in squares" @click="handle($event, square.id)">
+             <template v-if="square.class">
+               <div class="grid-item">
+               </div>
+             </template>
+             <template v-else>
+               <div class="clicked-item">
+                 <p>{{square.value}}</p>
+               </div>
+             </template>
+           </div>
+        </div>
+     </template>
+     <template v-if="difficulty === 2">
+        <div class="gridHard">
+          <div v-for="square in squares" v-on:click.left="clickedSquare(square.id)" v-on:click.shift="flagSquare(square.id)">
+            <template v-if="square.class">
+              <div class="grid-item">
+              </div>
+            </template>
+            <template v-else>
+              <div class="clicked-item">
+                <p>{{square.value}}</p>
+              </div>
+            </template>
+          </div>
+        </div>
+    </template>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script src="/script.js"></script>
+  </body>
+</html>
